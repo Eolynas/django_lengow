@@ -17,7 +17,5 @@ class Command(BaseCommand):
         get xml data & insert in db (sqlite)
         """
 
-        print("INSERTION")
         orders = get_xml_data.get_xml()
         insert_xml_data_in_db(list_orders=orders)
-        print("stop")
