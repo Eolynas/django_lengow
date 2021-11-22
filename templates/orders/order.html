@@ -1,0 +1,42 @@
+{% extends 'orders/base.html' %}
+{% block title %} {{ order.marketplace}}{% endblock %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <a href="{% url 'index' %}" type="button" class="btn btn-primary">Home</a>
+    </div>
+
+    <div class="container mt-5">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">marketplace</th>
+                <th scope="col">billing_firstname</th>
+                <th scope="col">billing_lastname</th>
+                <th scope="col">billing_address</th>
+                <th scope="col">billing_address_complement</th>
+                <th scope="col">billing_zipcode</th>
+                <th scope="col">billing_city</th>
+                <th scope="col">date_created</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>{{ order.marketplace }}</td>
+                <td>{{ order.billing_firstname }}</td>
+                <td>{{ order.billing_lastname }}</td>
+                <td>{{ order.billing_address }}</td>
+                <td>{{ order.billing_address_complement }}</td>
+                <td>{{ order.billing_zipcode }}</td>
+                <td>{{ order.billing_city }}</td>
+                <td>{{ order.date_created }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

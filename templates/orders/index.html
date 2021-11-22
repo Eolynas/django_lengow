@@ -1,0 +1,54 @@
+{% extends 'orders/base.html' %}
+{% block title %} TP Lengow {% endblock %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container mt-5">
+        <a href="{% url 'index' %}" type="button" class="btn btn-primary">Home / reset</a>
+    </div>
+    <form method="POST" id="searchForm">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="searchForm">Search</label>
+            <input type="text" class="form-control" id="searchForm" name="search_form">
+        </div>
+    </form>
+
+
+        <div class="container mt-5">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">marketplace</th>
+                    <th scope="col">billing_firstname</th>
+                    <th scope="col">billing_lastname</th>
+                    <th scope="col">billing_address</th>
+                    <th scope="col">billing_address_complement</th>
+                    <th scope="col">billing_zipcode</th>
+                    <th scope="col">billing_city</th>
+                    <th scope="col">date_created</th>
+                    <th scope="col">Link</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for order in list_order %}
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>{{ order.marketplace }}</td>
+                        <td>{{ order.billing_firstname }}</td>
+                        <td>{{ order.billing_lastname }}</td>
+                        <td>{{ order.billing_address }}</td>
+                        <td>{{ order.billing_address_complement }}</td>
+                        <td>{{ order.billing_zipcode }}</td>
+                        <td>{{ order.billing_city }}</td>
+                        <td>{{ order.date_created }}</td>
+                        <td><a href="{% url 'order' order.id %}" type="button" class="btn btn-primary">Order</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+{% endblock %}
