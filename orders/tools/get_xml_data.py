@@ -1,13 +1,18 @@
 import requests
 import xmltodict as xmltodict
+from typing import Union
 
 
-def get_xml() -> list:
+def get_xml() -> Union[list, None]:
     """
     request for get data xml
     :return: list orders
     """
+
     response = requests.get("http://test.lengow.io/orders-test.xml")
+
+    if response.status_code != 200:
+        return None
     dict_data = xmltodict.parse(response.content)
 
     orders_list = []
