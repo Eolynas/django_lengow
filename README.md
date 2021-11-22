@@ -42,15 +42,6 @@ pip install -r requirements.txt
 ```
 
 
-Faire la migration de la base de données
-```
-python manage.py migrate
-```
-Création des variables d'environnement:
-```
-DJANGO_SETTINGS_MODULE=settings.production 
-```
-
 --------------
 # Liste des commandes
 
